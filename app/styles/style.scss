@@ -1,0 +1,325 @@
+$fa-font-path: '../bower_components/font-awesome/fonts';
+@import '../bower_components/font-awesome/scss/font-awesome';
+@import '../bower_components/animate-sass/animate';
+$icon-font-path: '../bower_components/sass-bootstrap/fonts/';
+@import '../bower_components/sass-bootstrap/lib/bootstrap';
+@import 'custom_mixins.scss';
+/* This is your main css file */
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+/* Space out content a bit */
+
+/* extend class, mixing, variable */
+/* color */
+$cblack:#000;
+$cwhite:#fff;
+$cgrey:#545858;
+$citc:#49c2c4;
+$cditc: darken($citc,30%);
+$clitc: lighten($citc,20%);
+
+/* font */
+$opensans:'Open Sans', sans-serif;
+$ubuntu:'Ubuntu', sans-serif;
+$ubuntumono:'Ubuntu Mono', sans-serif;
+
+/* class */
+.hardcore{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.none-rad{
+    @include custom-rounded(0px);
+}
+.none-bor{
+    border:0px solid $cwhite !important;
+}
+.none-sha{
+    @include custom-shadow(0px, 0px, 0px, 0px, $cwhite)
+}
+.nothing{
+    @extend .none-rad;
+    @extend .none-bor;
+    @extend .none-sha;
+}
+
+/* body */
+body {
+    font-family: $ubuntumono;
+    font-size: 16px;
+}
+.bd1{
+    background-color: $cwhite;
+}
+.bd2{
+    background-color:$citc;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: $ubuntu;
+    color: $cwhite;
+}
+h1{
+    font-size: 50px;
+}
+h2{
+    font-size: 35px;
+}
+h3{
+    font-size: 28px;
+}
+
+/* background class */
+.mainback{
+    @extend .hardcore;
+//    background-color: darken($citc,20%);
+    @include custom-linear-gradient($cditc, $citc);
+    h1,h2,h3,h4,h5,h6{
+        color:$cwhite;
+    }
+     @include custom-responsive(wide-screens) { 
+         h1{
+            font-size: 50px;
+        }
+        h2{
+            font-size: 35px;
+        }
+        h3{
+            font-size: 28px;
+        }
+        h4{
+            font-size: 21px;
+        }
+    }
+    @include custom-responsive(medium-screens) { 
+        h1{
+            font-size: 35px;
+        }
+        h2{
+            font-size: 26px;
+        }
+        h3{
+            font-size: 21px;
+        }
+        h4{
+            font-size: 18px;
+        }
+    }
+    
+}
+.secondback{
+    width: 100%;
+    background-color: $cwhite;
+    padding-bottom: 50px;
+}
+.secondback2{
+    width: 100%;
+    background-color: $cwhite;
+    padding-bottom: 20px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+.thirdback{
+    width: 100%;
+    background-color: $cblack;
+    color: $cwhite;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+.thirdmini{
+     width: 100%;
+    background-color: lighten($cblack,20%);
+}
+.forthback{
+    width: 100%;
+    background-color: $citc;
+    color: $cwhite;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+.forthmini{
+    width: 100%;
+    background-color: $clitc;
+}
+
+/* nav */
+.navitc{
+    font-size: 18px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    @extend .none-bor;
+    .nav{
+        li{
+            a{
+                font-family: $ubuntu;
+                color: $cwhite;
+                font-weight: bold;
+                &:hover{
+                    background-color: $cwhite;
+                    color: $citc;
+                }
+            }
+        }
+        .active{
+             a{
+                font-family: $ubuntu;
+                color: $citc;
+                font-weight: bold;
+                &:hover{
+                    color: $cditc;
+                }
+            }
+        }
+    }
+}
+.navblog{
+    font-size: 18px;
+     padding-top: 10px;
+    padding-bottom: 10px;
+    @extend .none-bor;
+    background-color: $cwhite;
+    .nav{
+        li{
+            a{
+                font-family: $ubuntu;
+                color: $citc;
+                font-weight: bold;
+                &:hover{
+                    background-color: $citc;
+                    color: $cwhite;
+                }
+            }
+        }
+        .active{
+             a{
+                font-family: $ubuntu;
+                color: $citc;
+                font-weight: bold;
+                &:hover{
+                    color: $citc;
+                }
+            }
+        }
+    }
+}
+.container > .navbar-header{
+    @include custom-responsive(wide-screens) {
+        padding-left: 0px;
+    }
+    @include custom-responsive(medium-screens) {
+        padding-left: 15px;
+    }
+}
+.pagitc{
+    li{
+        a{
+            background-color: inherit;
+            font-weight: bold;
+            color: $cwhite;
+            border: 0px solid $cwhite;
+            &:hover{
+                background-color: $cwhite;
+                color: $citc;
+            }
+        }
+    }
+    .disabled{
+        a{
+            background-color: inherit;
+            color: $cgrey;
+            &:hover{
+                background-color: inherit;
+            }
+        }
+    }
+    .active{
+        a{
+            background-color: $citc;
+            color: $cwhite;
+            &:hover{
+                background-color: $cditc;
+                color: $cwhite;
+            }
+        }
+    }
+}
+.pagitc > li:first-child > a,
+.pagitc > li:last-child > a{
+    @extend .none-rad;
+}
+.btn-itc{
+    @extend .none-rad;
+    background-color: $citc;
+    color: $cwhite;
+    &:hover{
+        background-color: $cditc;
+        color: $cwhite;
+    }
+}
+
+/* support class */
+.vodanh{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    li{
+        a{
+            color: $cwhite;
+            &:hover{
+                color:$citc;
+            }
+        }
+    }
+}
+.vohoc{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: $cgrey;
+    h1,h2,h3,h4,h5,h6{
+        color: $cblack;
+        a{
+            color: $citc;
+            &:hover{
+                cursor: pointer;
+                color: darken($citc,20%);
+                text-decoration: none;
+            }
+        }
+    }
+}
+.volai{
+    padding: 30px 20px 30px 20px;
+    margin-bottom: 20px;
+    background-color: $cwhite;
+    color: $cgrey;
+    h1,h2,h3,h4,h5,h6{
+        color: $cblack;
+        a{
+            color: $citc;
+            &:hover{
+                cursor: pointer;
+                color: darken($citc,20%);
+                text-decoration: none;
+            }
+        }
+    }
+}
+.vodoi{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: $cwhite;
+    h1,h2,h3,h4,h5,h6{
+        color: $cwhite;
+    }
+}
+.vohinh{
+    width: 100%;
+    margin-bottom: 10px;
+}
