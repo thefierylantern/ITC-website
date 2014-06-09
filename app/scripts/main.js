@@ -1,6 +1,7 @@
 require([
     'jquery',
     'skrollr',
+    'slick',
     'modernizr',
     'bootstrap'
 ], function ($, skrollr) {
@@ -8,6 +9,14 @@ require([
 
     $(document).ready(function () {
         /* App Module */
+
+        $('.single').slick();
+
+        $('.multiple-items').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
         window.skrollr = skrollr;
         var s = skrollr.init();
         require(['skrollrmenu'], function () {
@@ -32,9 +41,9 @@ require([
 
                 //If you pass a handleLink function you'll disable `data-menu-top` and `data-menu-offset`.
                 //You are in control where skrollr will scroll to. You get the clicked link as a parameter and are expected to return a number.
-//                handleLink: function (link) {
-//                    return 800; //Hardcoding 400 doesn't make much sense.
-//                }
+                //                handleLink: function (link) {
+                //                    return 800; //Hardcoding 400 doesn't make much sense.
+                //                }
             });
         });
     });

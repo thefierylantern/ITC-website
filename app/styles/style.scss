@@ -4,6 +4,7 @@ $fa-font-path: '../bower_components/font-awesome/fonts';
 $icon-font-path: '../bower_components/sass-bootstrap/fonts/';
 @import '../bower_components/sass-bootstrap/lib/bootstrap';
 @import 'custom_mixins.scss';
+@import 'slick.scss';
 /* This is your main css file */
 .browsehappy {
     margin: 0.2em 0;
@@ -78,7 +79,7 @@ h3{
 /* background class */
 .mainback{
     @extend .hardcore;
-//    background-color: darken($citc,20%);
+//    background-color: $citc;
     @include custom-linear-gradient($cditc, $citc);
     h1,h2,h3,h4,h5,h6{
         color:$cwhite;
@@ -155,6 +156,7 @@ h3{
     padding-top: 25px;
     padding-bottom: 10px;
     @extend .none-bor;
+    margin-bottom: 0px !important;
     .nav{
         li{
             a{
@@ -181,10 +183,27 @@ h3{
 }
 .navblog{
     font-size: 18px;
-     padding-top: 10px;
+    padding-top: 10px;
     padding-bottom: 10px;
+    margin-bottom: 0px !important;
     @extend .none-bor;
     background-color: $cwhite;
+    .navbar-header{
+        li{
+            display: block;
+            a{
+                font-family: $ubuntu;
+                color: $citc;
+                font-weight: bold;
+                padding: 10xp 15px 10px 15px;
+                &:hover{
+                    text-decoration: none;
+                    background-color: $citc;
+                    color: $cwhite;
+                }
+        }
+        }
+    }
     .nav{
         li{
             a{
@@ -306,9 +325,15 @@ h3{
             &:hover{
                 cursor: pointer;
                 color: darken($citc,20%);
-                text-decoration: none;
             }
         }
+    }
+    a{
+        color: $citc;
+            &:hover{
+                cursor: pointer;
+                color: darken($citc,20%);
+            }
     }
 }
 .vodoi{
